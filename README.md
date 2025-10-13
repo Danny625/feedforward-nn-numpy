@@ -109,6 +109,11 @@ Visualizing training and validation losses over epochs
 
 ---
 
+Empirical Summary:
+Random initialization converged faster than zero initialization, and increasing hidden units improved training stability. Validation loss decreased over epochs, confirming correct gradient propagation.
+
+---
+
 Author:
 
 Danny Weng
