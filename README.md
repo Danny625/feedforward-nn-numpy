@@ -126,4 +126,5 @@ Random initialization converged faster than zero initialization, and increasing 
 ## Author
 
 Danny Weng
+
 Carnegie Mellon University
