@@ -37,6 +37,7 @@ To train and evaluate the model, run:
 python neuralnet.py train.csv valid.csv train_out.txt valid_out.txt metrics.txt 50 100 1 0.01
 
 ---
+Arguments:
 
 | Argument        | Description                                        |
 | --------------- | -------------------------------------------------- |
@@ -50,3 +51,65 @@ python neuralnet.py train.csv valid.csv train_out.txt valid_out.txt metrics.txt 
 | `init_flag`     | 1 = random initialization, 2 = zero initialization |
 | `learning_rate` | SGD learning rate (e.g. 0.01)                      |
 
+---
+Example Output:
+
+epoch=1 crossentropy(train): 2.302
+epoch=1 crossentropy(validation): 2.298
+epoch=2 crossentropy(train): 2.289
+epoch=2 crossentropy(validation): 2.285
+...
+error(train): 0.124
+error(validation): 0.132
+
+---
+Project Structure:
+
+feedforward-nn-numpy/
+│
+├── neuralnet.py              # Core neural network implementation
+├── README.md                 # Project overview and usage
+├── requirements.txt          # Dependencies (NumPy)
+├── train_sample.csv          # Example synthetic dataset (optional)
+├── valid_sample.csv          # Example synthetic dataset (optional)
+├── metrics_sample.txt        # Example output log (optional)
+└── LICENSE                   # MIT License (optional)
+
+---
+
+Dependencies:
+
+Python 3.9+
+NumPy ≥ 1.20
+
+Install dependencies:
+pip install -r requirements.txt
+
+---
+
+Notes
+
+This project was inspired by coursework from Carnegie Mellon University’s 10-301: Introduction to Machine Learning, but this version has been rewritten and documented for public educational use.
+
+No CMU-provided materials, datasets, or autograder files are included.
+
+---
+
+Learning Outcomes
+
+Through this implementation, I reinforced key machine learning fundamentals:
+
+Deriving and coding the backpropagation algorithm manually
+
+Understanding how activation functions and loss interact
+
+Implementing SGD without frameworks
+
+Visualizing training and validation losses over epochs
+
+---
+
+Author:
+
+Danny Weng
+Carnegie Mellon University
