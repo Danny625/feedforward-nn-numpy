@@ -35,6 +35,7 @@ To train and evaluate the model, run:
 
 ```bash
 python neuralnet.py train.csv valid.csv train_out.txt valid_out.txt metrics.txt 50 100 1 0.01
+'''
 
 ---
 Arguments:
