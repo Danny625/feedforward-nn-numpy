@@ -6,7 +6,7 @@ Developed by **Danny Weng** as part of an educational project exploring the foun
 
 ---
 
-## 🧠 Overview
+## Overview
 
 This project implements a fully connected feedforward neural network with:
 - One hidden layer using **Sigmoid** activation
@@ -18,7 +18,7 @@ Everything—weight initialization, loss computation, and gradient updates—is 
 
 ---
 
-## ⚙️ Features
+## Features
 
 - **Zero or Random Weight Initialization**  
 - **Fully Custom Layers:** `Linear`, `Sigmoid`, and `SoftmaxCrossEntropy`
@@ -29,7 +29,7 @@ Everything—weight initialization, loss computation, and gradient updates—is 
 
 ---
 
-## 🚀 Usage
+## Usage
 
 To train and evaluate the model, run:
 
@@ -38,7 +38,7 @@ python neuralnet.py train.csv valid.csv train_out.txt valid_out.txt metrics.txt 
 ```
 
 ---
-Arguments:
+## Arguments
 
 | Argument        | Description                                        |
 | --------------- | -------------------------------------------------- |
@@ -54,7 +54,7 @@ Arguments:
 
 ---
 
-Example Output:
+## Example Output
 
 ```bash
 epoch=1 crossentropy(train): 2.302
@@ -68,7 +68,7 @@ error(validation): 0.132
 
 ---
 
-Project Structure:
+## Project Structure
 
 ```bash
 feedforward-nn-numpy/
@@ -84,7 +84,7 @@ feedforward-nn-numpy/
 
 ---
 
-Dependencies:
+## Dependencies
 
 ```bash
 Python 3.9+
@@ -96,7 +96,7 @@ pip install -r requirements.txt
 
 ---
 
-Notes
+## Notes
 
 This project was inspired by coursework from Carnegie Mellon University’s 10-301: Introduction to Machine Learning, but this version has been rewritten and documented for public educational use.
 
@@ -104,7 +104,7 @@ No CMU-provided materials, datasets, or autograder files are included.
 
 ---
 
-Learning Outcomes
+## Learning Outcomes
 
 Through this implementation, I reinforced key machine learning fundamentals:
 
@@ -118,12 +118,12 @@ Visualizing training and validation losses over epochs
 
 ---
 
-Empirical Summary:
+## Empirical Summary
 Random initialization converged faster than zero initialization, and increasing hidden units improved training stability. Validation loss decreased over epochs, confirming correct gradient propagation.
 
 ---
 
-Author:
+## Author
 
 Danny Weng
 Carnegie Mellon University
