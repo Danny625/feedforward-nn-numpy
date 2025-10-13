@@ -53,6 +53,8 @@ Arguments:
 | `learning_rate` | SGD learning rate (e.g. 0.01)                      |
 
 ---
+
+```bash
 Example Output:
 
 epoch=1 crossentropy(train): 2.302
@@ -75,6 +77,7 @@ feedforward-nn-numpy/
 ├── valid_sample.csv          # Example synthetic dataset (optional)
 ├── metrics_sample.txt        # Example output log (optional)
 └── LICENSE                   # MIT License (optional)
+```
 
 ---
 
