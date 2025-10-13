@@ -54,9 +54,9 @@ Arguments:
 
 ---
 
-```bash
 Example Output:
 
+```bash
 epoch=1 crossentropy(train): 2.302
 epoch=1 crossentropy(validation): 2.298
 epoch=2 crossentropy(train): 2.289
@@ -64,10 +64,13 @@ epoch=2 crossentropy(validation): 2.285
 ...
 error(train): 0.124
 error(validation): 0.132
+```
 
 ---
+
 Project Structure:
 
+```bash
 feedforward-nn-numpy/
 │
 ├── neuralnet.py              # Core neural network implementation
@@ -83,11 +86,13 @@ feedforward-nn-numpy/
 
 Dependencies:
 
+```bash
 Python 3.9+
 NumPy ≥ 1.20
 
 Install dependencies:
 pip install -r requirements.txt
+```
 
 ---
 
