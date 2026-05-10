@@ -1,130 +1,138 @@
-# Feedforward Neural Network (NumPy)
+# 🧠 Feedforward Neural Network from Scratch
 
-A single-hidden-layer neural network implemented entirely in **NumPy**, built to understand the mechanics of forward propagation, backpropagation, and stochastic gradient descent (SGD) from first principles.
+A small feedforward neural network built from scratch with NumPy.
 
-Developed by **Danny Weng** as part of an educational project exploring the foundations of machine learning model design without external deep learning libraries.
+I made this to understand what actually happens inside a neural network: linear layers, activation functions, softmax probabilities, cross-entropy loss, backpropagation, and stochastic gradient descent without using PyTorch, TensorFlow, or scikit-learn.
 
----
+## 🛠 Tools
 
-## Overview
+- Python
+- NumPy
+- argparse
+- custom neural network layers
+- stochastic gradient descent
 
-This project implements a fully connected feedforward neural network with:
-- One hidden layer using **Sigmoid** activation
-- **Softmax with Cross-Entropy loss** for classification
-- Manual **forward and backward propagation**
-- Training via **Stochastic Gradient Descent (SGD)**
+## ✨ What it includes
 
-Everything—weight initialization, loss computation, and gradient updates—is implemented from scratch using only NumPy.
+- Single-hidden-layer neural network
+- Custom `Linear` layer
+- Sigmoid activation
+- Softmax + cross-entropy loss
+- Forward propagation
+- Backpropagation
+- SGD weight updates
+- Train/validation loss tracking
+- Prediction output files
+- Error rate reporting
 
----
+## 🚦 How to run
 
-## Features
-
-- **Zero or Random Weight Initialization**  
-- **Fully Custom Layers:** `Linear`, `Sigmoid`, and `SoftmaxCrossEntropy`
-- **Automatic Gradient Updates** using SGD  
-- **Numerically Stable Softmax Implementation**  
-- **Command-Line Interface** for configurable training and evaluation  
-- **Deterministic Shuffling** for reproducibility per epoch
-
----
-
-## Usage
-
-To train and evaluate the model, run:
+### 1. Clone the repo
 
 ```bash
-python neuralnet.py train.csv valid.csv train_out.txt valid_out.txt metrics.txt 50 100 1 0.01
+git clone https://github.com/Danny625/feedforward-nn-numpy.git
+cd feedforward-nn-numpy
 ```
 
----
-## Arguments
-
-| Argument        | Description                                        |
-| --------------- | -------------------------------------------------- |
-| `train.csv`     | Path to the training dataset                       |
-| `valid.csv`     | Path to the validation dataset                     |
-| `train_out.txt` | File to save predictions on the training set       |
-| `valid_out.txt` | File to save predictions on the validation set     |
-| `metrics.txt`   | File to store training and validation losses       |
-| `num_epoch`     | Number of epochs to train (e.g. 50)                |
-| `hidden_units`  | Number of hidden layer units (e.g. 100)            |
-| `init_flag`     | 1 = random initialization, 2 = zero initialization |
-| `learning_rate` | SGD learning rate (e.g. 0.01)                      |
-
----
-
-## Example Output
+### 2. Install dependencies
 
 ```bash
-epoch=1 crossentropy(train): 2.302
-epoch=1 crossentropy(validation): 2.298
-epoch=2 crossentropy(train): 2.289
-epoch=2 crossentropy(validation): 2.285
-...
-error(train): 0.124
-error(validation): 0.132
-```
-
----
-
-## Project Structure
-
-```bash
-feedforward-nn-numpy/
-│
-├── neuralnet.py              # Core neural network implementation
-├── README.md                 # Project overview and usage
-├── requirements.txt          # Dependencies (NumPy)
-├── train_sample.csv          # Example synthetic dataset (optional)
-├── valid_sample.csv          # Example synthetic dataset (optional)
-├── metrics_sample.txt        # Example output log (optional)
-└── LICENSE                   # MIT License (optional)
-```
-
----
-
-## Dependencies
-
-```bash
-Python 3.9+
-NumPy ≥ 1.20
-
-Install dependencies:
 pip install -r requirements.txt
 ```
 
----
+### 3. Run training
 
-## Notes
+```bash
+python neuralnet.py train_sample.csv valid_sample.csv train_out.txt valid_out.txt metrics.txt 10 5 1 0.1
+```
 
-This project was inspired by coursework from Carnegie Mellon University’s 10-301: Introduction to Machine Learning, but this version has been rewritten and documented for public educational use.
+The arguments are:
 
-No CMU-provided materials, datasets, or autograder files are included.
+```text
+python neuralnet.py \
+  <train_input> \
+  <validation_input> \
+  <train_out> \
+  <validation_out> \
+  <metrics_out> \
+  <num_epoch> \
+  <hidden_units> \
+  <init_flag> \
+  <learning_rate>
+```
 
----
+### Example
 
-## Learning Outcomes
+```bash
+python neuralnet.py train_sample.csv valid_sample.csv train_out.txt valid_out.txt metrics.txt 10 5 1 0.1
+```
 
-Through this implementation, I reinforced key machine learning fundamentals:
+This trains for 10 epochs with 5 hidden units, random initialization, and a learning rate of 0.1.
 
-Deriving and coding the backpropagation algorithm manually
+## 📄 Input format
 
-Understanding how activation functions and loss interact
+The training and validation files should be CSV files where:
 
-Implementing SGD without frameworks
+- the first column is the class label
+- the remaining columns are numeric features
 
-Visualizing training and validation losses over epochs
+Example:
 
----
+```text
+0,0.1,0.2,0.3,0.5,0.7
+1,0.4,0.6,0.8,0.2,0.3
+0,0.2,0.1,0.9,0.6,0.4
+```
 
-## Empirical Summary
-Random initialization converged faster than zero initialization, and increasing hidden units improved training stability. Validation loss decreased over epochs, confirming correct gradient propagation.
+## 📤 Outputs
 
----
+The program writes three output files:
 
-## Author
+```text
+train_out.txt      # predicted labels for training data
+valid_out.txt      # predicted labels for validation data
+metrics.txt        # train/validation losses and error rates
+```
+
+The metrics file includes cross-entropy loss after each epoch, followed by final train and validation error rates.
+
+## 🤖 How it works
+
+The model uses a simple feedforward architecture:
+
+```text
+input features
+   ↓
+Linear layer
+   ↓
+Sigmoid activation
+   ↓
+Linear layer
+   ↓
+Softmax + cross-entropy loss
+```
+
+During training, the network processes one example at a time, computes the loss, backpropagates gradients through each layer, and updates weights using stochastic gradient descent.
+
+## 📁 Project structure
+
+```text
+feedforward-nn-numpy/
+├── README.md
+├── neuralnet.py          # Main neural network implementation
+├── requirements.txt      # Python dependencies
+├── train_sample.csv      # Small sample training file
+└── valid_sample.csv      # Small sample validation file
+```
+
+## 📚 What I learned
+
+- How forward propagation works layer by layer
+- How softmax and cross-entropy connect for classification
+- How gradients flow backward through a network
+- How stochastic gradient descent updates weights
+- Why deep learning libraries are useful after understanding the basics
+
+## 👤 Author
 
 Danny Weng
-
-Carnegie Mellon University
